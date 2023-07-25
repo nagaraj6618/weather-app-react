@@ -1,0 +1,28 @@
+.search-bar{
+  position: relative;
+  top: 100px;
+  display: flex;
+  justify-content: center;
+}
+.search{
+  padding: 8px 10px;
+  font-style: oblique;
+  font-size: medium;
+  border-radius: 5px;
+  border: solid #379683 2px;
+  margin-right: 10px;
+}
+.btn{
+  padding: 0px 20px;
+  font-size: medium;
+  background-color:#379683;
+  border: solid rgba(255, 255, 255,0.6) 2px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.btn:hover{
+  background-color: wheat;
+  color: #379683;
+}

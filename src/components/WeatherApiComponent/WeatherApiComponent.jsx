@@ -1,7 +1,31 @@
 import React, { useState } from 'react'
+import Axios from 'axios'
 import "./WeatherApiComponent.css"
+// import CountryCode from '../../data/countryCode'
 function WeatherApiComponent() {
-  const [searchQuery,setSearchQuery] = useState([])
+  const [searchQuery,setSearchQuery] = useState("")
+  // const [option,setOption] = useState("")
+  const [data,setData] = useState([])
+  const [main,setMain] = useState([])
+  const [wind,setWind] = useState([])
+
+  // const optionHandler = (event) =>{
+  //   setOption(event.target.value)
+  //   console.log(option);
+  // }
+
+  const searchHandler = async() => {
+    try{
+      const response = await Axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${searchQuery}&APPID=3cba5e74adf3dff51d692eac46d71e49`)
+      setData(response.data);
+      setMain(response.data.main);
+      setWind(response.data.wind)
+      
+    }
+    catch(err){
+      alert('Please Enter valid City Name')
+    }
+  }
   return (
     <div className='header'>
       <div className='search-bar'>
@@ -12,21 +36,31 @@ function WeatherApiComponent() {
         value={searchQuery}
         onChange={(e)=>setSearchQuery(e.target.value)}
         />
-        
-        <button type='submit' className='btn'>Search</button>
+        {/* <select onChange={optionHandler}
+        className='Select'>
+
+          {CountryCode.map((option) => 
+            (<option key={option.code}>{option.name}</option>))
+          }
+          
+        </select> */}
+        <button type='submit' className='btn' onClick={searchHandler}>Search</button>
       </div>
+      {data && (
       <div className='container'>
-        <div class="shape1"></div>
-        <div class="shape2"></div>
+        <div className="shape1"></div>
+        <div className="shape2"></div>
         <div className='container-card'>
-          <h2 className='head-text'>Chennai</h2>
+          <h2 className='head-text'>{data.name}</h2>
           <div className='wrapper'>
-            <p>Temperature : 20 c</p>
-            <p>Humidity : 33.5</p>
-            <p>Wind Speed : 12 km/hr</p>
+            
+            <p>Temperature : {main.temp}</p>
+            <p>Humidity : {main.humidity}</p>
+            <p>Wind Speed (kmph): {wind.speed} </p>
           </div>
         </div>
       </div>
+      )}
     </div>
   )
 }

@@ -8,16 +8,25 @@ function WeatherApiComponent() {
   const [data,setData] = useState([])
   const [dataCheck,setDataCheck] = useState(null)
   const [searchQuery,setSearchQuery] = useState("")
-
-  
   const [main,setMain] = useState([])
   const [wind,setWind] = useState([])
-  
-
-  const inputHandler = (event) => {
-    setSearchQuery(event.target.value);
-   
+  const [time,setTime] = useState("")
+  const [date,setDate] = useState("")
+  setInterval(() => {
+    const now = new Date()
+    const currentDate = now.toDateString();
+    setTime( now.toLocaleTimeString());
+       
+    if(date !==currentDate){
+      setDate(currentDate)
+    }
     
+  }, 1000);
+  setInterval(()=> {
+    
+  })
+  const inputHandler = (event) => {
+    setSearchQuery(event.target.value); 
   }
   const searchHandler = async() => {
     try{
@@ -34,36 +43,40 @@ function WeatherApiComponent() {
   }
   return (
     <div>
-    <div className='header'>
+      <div className='Timer-card'>
+        <div className='Timer'>{time}</div>
+        <div className='Date'>{date}</div>
+      </div>
+      <div className='header'>
       
-      <div className='search-bar'>
-        <input
-        className='search' 
-        type='text'
-        placeholder='Search'
-        value={searchQuery}
-        onChange={inputHandler }
-        />
+        <div className='search-bar'>
+          <input
+          className='search' 
+          type='text'
+          placeholder='Search'
+          value={searchQuery}
+          onChange={inputHandler }
+          />
+          
+          <button type='submit' className='btn' onClick={searchHandler}>Search</button>
+          <div className='search-container'>
         
-        <button type='submit' className='btn' onClick={searchHandler}>Search</button>
-        <div className='search-container'>
-       
-        {CITIES.filter(item => {
-          const searchItem = searchQuery.toLowerCase()
-          const fullName = item.toLowerCase()
-          return searchItem && fullName.startsWith(searchItem) && fullName !== searchItem
-        })
-        
-        .map((data) => (
-          <div onClick={()=>setSearchQuery(data)} >{data}</div>
-         
-        ))}
-        
-      </div>
-      </div>
-      </div>
+          {CITIES.filter(item => {
+            const searchItem = searchQuery.toLowerCase()
+            const fullName = item.toLowerCase()
+            return searchItem && fullName.startsWith(searchItem) && fullName !== searchItem
+          })
+          
+          .map((data) => (
+            <div onClick={()=>setSearchQuery(data)} >{data}</div>
+          
+          ))}
+          
+        </div>
+        </div>
+        </div>
       
-  
+      <div className='card-head'>
       {dataCheck && (
       
         <div className='container'>
@@ -79,8 +92,10 @@ function WeatherApiComponent() {
             </div>
           </div>
         </div>
+
       
       )}
+      </div>
     </div>
   )
 }

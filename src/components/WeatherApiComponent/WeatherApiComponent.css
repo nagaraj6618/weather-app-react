@@ -104,6 +104,13 @@
   overflow-y: scroll;
  
 }
+@media(max-width: 700px){
+  .search-container{
+   position: absolute;
+   top: 28%;
+   left: 47%;
+  }
+}
 .search-container::-webkit-scrollbar{
   border-radius: 20px;
   background:#426cf8;

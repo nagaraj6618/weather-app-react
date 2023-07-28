@@ -42,7 +42,7 @@ function WeatherApiComponent() {
     }
   }
   return (
-    <div>
+    <div className='head-container'>
       <div className='Timer-card'>
         <div className='Timer'>{time}</div>
         <div className='Date'>{date}</div>

@@ -1,6 +1,11 @@
 *{
 color: white;
+
 }
+/* .head-container{
+  background-color: #426cf8;
+  height: 97vh;
+} */
 .header{
   margin-top: 30px;
   display: flex;
@@ -36,6 +41,10 @@ color: white;
   height: 100px;
   background-color: rgb(235, 52, 97);
   box-shadow: 0 10px 30px rgba(235, 52, 97,0.7);
+  margin-top: 10px;
+}
+.Date{
+  margin-top: 10px;
 }
 .search-bar{
   display: flex;

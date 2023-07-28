@@ -1,4 +1,4 @@
-.search-bar{
+ .search-bar{
   position: relative;
   top: 100px;
   display: flex;
@@ -32,7 +32,7 @@
   position: absolute;
   transform: translate(-59%,-40%);
   left: 51%;
-  top: 51%;
+  top: 55%;
 }
 .container *{
   color: #ffffff;
@@ -48,8 +48,8 @@
   border-radius: 10px;
 }
 .shape1{
-  height: 200px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
   position: absolute;
   background: linear-gradient(
       45deg,
@@ -58,21 +58,21 @@
   );
   border-radius: 50%;
   z-index: -1;
-  bottom: 100px;
-  right: -100px;
+  bottom: 170px;
+  right: -120px;
 }
 .shape2{
-  height: 200px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
   position: absolute;
   background: linear-gradient(
-      135deg,
+      120deg,
       #426cf8,
       #3ebdf0
   );
   border-radius: 50%;
-  top: 100px;
-  left: -100px;
+  top: 170px;
+  left: -80px;
   z-index: -1;
 }
 .head-text{
@@ -89,26 +89,36 @@
   font-size: medium;
   
 }
-.search-container{
-  text-align: center;
-  opacity: 0.7;
-  padding: 10px;
-  border-radius: 10px;
-  background-color: white;
-  width: 180px;
-  height: 100px;
-  position: absolute;
-  transform: translate(-50%,-50%);
-  left: 47%;
-  top:27%;
+.search-container {
+  position: relative;
+  width: 350px;
+  max-height: 150px;
   overflow-y: scroll;
- 
+  background-color: white;
+  border-radius: 10px;
+  top: 110px;
+  left: 39%;
+  opacity: 0.7;
 }
+
+.search-container div {
+  padding: 8px;
+  cursor: pointer;
+   background-color: lavenderblush; 
+  text-align: center;
+
+  
+}
+
+.search-container div:hover {
+  background-color: #e0e0e0;
+}
+
+
 @media(max-width: 700px){
   .search-container{
-   position: absolute;
-   top: 28%;
-   left: 47%;
+   position: relative;
+   left: 90px;
   }
 }
 .search-container::-webkit-scrollbar{
@@ -125,4 +135,4 @@
   margin-bottom: 10px;
   padding: 10px;
   cursor: pointer;
-}
+} 

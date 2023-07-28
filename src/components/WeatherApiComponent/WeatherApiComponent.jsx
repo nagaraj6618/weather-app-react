@@ -5,7 +5,7 @@ import "./WeatherApiComponent.css"
 function WeatherApiComponent() {
   const [searchQuery,setSearchQuery] = useState("")
   // const [option,setOption] = useState("")
-  const [data,setData] = useState([])
+  const [data,setData] = useState([null])
   const [main,setMain] = useState([])
   const [wind,setWind] = useState([])
 
@@ -45,6 +45,16 @@ function WeatherApiComponent() {
           
         </select> */}
         <button type='submit' className='btn' onClick={searchHandler}>Search</button>
+      </div>
+      <div className='search-container'>
+        <div>hey</div>
+        <div>good morning</div>
+        <div>hloooo</div>
+        <div>welcome</div>
+        <div>hey</div>
+        <div>good morning</div>
+        <div>hloooo</div>
+        <div>welcome</div>
       </div>
       {data && (
       <div className='container'>

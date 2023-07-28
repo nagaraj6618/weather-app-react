@@ -88,3 +88,31 @@
   font-size: medium;
   
 }
+.search-container{
+  background-color: white;
+  opacity: 0.6;
+  width: 175px;
+  padding: 10px;
+  /* text-align: center; */
+  margin-left: 625px;
+  margin-top: 100px;
+  height: 100px;
+  overflow-y: scroll;
+  border-radius: 5px;
+ 
+}
+.search-container::-webkit-scrollbar{
+  border-radius: 20px;
+  background:#426cf8;
+  
+}
+.search-container::-webkit-scrollbar-thumb{
+  background:#eb3461;
+  border-radius: 30px;
+}
+.search-container div{
+  background-color: lavenderblush;
+  margin-bottom: 10px;
+  padding: 10px;
+  
+}

@@ -115,10 +115,12 @@
 }
 
 
-@media(max-width: 900px){
+@media(max-width: 700px){
   .search-container{
-   position: relative;
-   left: 90px;
+   position: static;
+   width: 100%;
+   margin-top: 110px;
+   margin-left:  10px;
   }
 }
 .search-container::-webkit-scrollbar{

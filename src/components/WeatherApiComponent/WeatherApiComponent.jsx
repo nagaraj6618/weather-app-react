@@ -55,21 +55,31 @@ function WeatherApiComponent() {
         <div>good morning</div>
         <div>hloooo</div>
         <div>welcome</div>
+        <div>hey</div>
+        <div>good morning</div>
+        <div>hloooo</div>
+        <div>welcome</div>
+        <div>hey</div>
+        <div>good morning</div>
+        <div>hloooo</div>
+        <div>welcome</div>
       </div>
       {data && (
-      <div className='container'>
-        <div className="shape1"></div>
-        <div className="shape2"></div>
-        <div className='container-card'>
-          <h2 className='head-text'>{data.name}</h2>
-          <div className='wrapper'>
-            
-            <p>Temperature : {main.temp}</p>
-            <p>Humidity : {main.humidity}</p>
-            <p>Wind Speed (kmph): {wind.speed} </p>
+      
+        <div className='container'>
+          <div className="shape1"></div>
+          <div className="shape2"></div>
+          <div className='container-card'>
+            <h2 className='head-text'>{data.name}</h2>
+            <div className='wrapper'>
+              
+              <p>Temperature : {main.temp}</p>
+              <p>Humidity : {main.humidity}</p>
+              <p>Wind Speed (kmph): {wind.speed} </p>
+            </div>
           </div>
         </div>
-      </div>
+      
       )}
     </div>
   )

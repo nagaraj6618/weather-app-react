@@ -12,6 +12,7 @@ function WeatherApiComponent() {
   const [wind,setWind] = useState([])
   const [time,setTime] = useState("")
   const [date,setDate] = useState("")
+  const [dataTime,setDataTime] = useState([])
   setInterval(() => {
     const now = new Date()
     const currentDate = now.toDateString();
@@ -34,6 +35,7 @@ function WeatherApiComponent() {
       setData(response.data);
       setMain(response.data.main);
       setWind(response.data.wind);
+      setDataTime(response.data.sys)
       setDataCheck(true)
       
     }
@@ -41,6 +43,14 @@ function WeatherApiComponent() {
       alert('Please Enter valid City Name')
     }
   }
+
+  const convertUnixTimestampToTime = (unixTimestamp) => {
+    const date = new Date(unixTimestamp * 1000);
+    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  };
+
+ 
+
   return (
     <div className='head-container'>
       <div className='Timer-card'>
@@ -74,6 +84,7 @@ function WeatherApiComponent() {
           
         </div>
         </div>
+
         </div>
       
       <div className='card-head'>
@@ -89,13 +100,17 @@ function WeatherApiComponent() {
               <p>Temperature : {main.temp}</p>
               <p>Humidity : {main.humidity}</p>
               <p>Wind Speed (kmph): {wind.speed} </p>
+              <p>Sunrise Time: {convertUnixTimestampToTime(dataTime.sunrise)}</p>
+              <p>Sunset Time: {convertUnixTimestampToTime(dataTime.sunset)}</p>
+     
+            </div>
             </div>
           </div>
-        </div>
 
       
       )}
       </div>
+   
     </div>
   )
 }

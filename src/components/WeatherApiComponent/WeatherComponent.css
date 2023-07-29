@@ -94,7 +94,7 @@ color: white;
   position: relative;
   top: -10px; 
   min-height: 100vh;
-  
+  z-index: 1;
   background: url(rain-3.png);
   animation: rain 0.3s linear infinite;  
 }
@@ -191,7 +191,7 @@ color: white;
 }
 .search-bar{
   
-
+  z-index: 2;
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;

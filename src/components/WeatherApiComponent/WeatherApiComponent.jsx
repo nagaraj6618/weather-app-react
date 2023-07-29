@@ -66,8 +66,6 @@ function WeatherApiComponent() {
   const climateHandler = () => {
     weatherArray.map((item) => setSun(item.main));
     setRiseSet('');
-  
-    console.log(sun);
   }
 
  

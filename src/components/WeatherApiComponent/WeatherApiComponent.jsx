@@ -60,7 +60,7 @@ function WeatherApiComponent() {
     setTimeout(()=>{
       setSun("");
       setRiseSet("")
-    },5000)
+    },4500)
   }
 
  

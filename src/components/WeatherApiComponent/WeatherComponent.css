@@ -6,13 +6,8 @@ color: white;
    /* position: absolute; */
   /* background-color: rgba(255, 182, 80, 0.7) ; */
   height: 100vh;
-  /* background: radial-gradient(at 40% 70%, #820, #610, #400, #100); */
- /* width: 100%;
- 
-  background: radial-gradient(circle at bottom, #ff9933 10%, transparent 80%);
 
-*/
-  animation: sunrise 10s  linear forwards; 
+  animation: sunrise 5s  linear forwards; 
   
 
   
@@ -29,13 +24,14 @@ color: white;
 
 .sunRise{
   position: sticky;
-  top: 56%;
-  left: 47%;
-  width: 100px;
-  height: 100px;
+ 
+  top: 30px;
+  left: 150px;
+  width: 90px;
+  height: 90px;
   background-color:#ff9933;
   border-radius: 50%;
-  animation: sunriseAnimation 10s linear forwards;
+  animation: sunriseAnimation 5s linear forwards;
 }
 @keyframes sunriseAnimation {
   0% {
@@ -44,10 +40,45 @@ color: white;
     width: 0px;
   }
   100% {
-    top: 50px;
-    left: 210px;
+    
+    left: 70%;
     background:  rgb(255, 153, 51) ;
     box-shadow: 0 10px 30px rgba(255, 159, 42, 0.9); 
+  }
+}
+.moonTime{
+  height: 100vh;
+  animation: sunset 5s  linear forwards;
+}
+@keyframes sunset{
+  0%{
+    background:  #ffc183 ;
+  }
+  100%{
+  
+    background-color: #11131e;
+  }
+ }
+ .sunSet{
+  position: sticky;
+  top: 30px;
+  left: 70%;
+  width: 90px;
+  height: 90px;
+  background-color:#ff9933;
+  border-radius: 50%;
+  animation: sunsetAnimation 5s linear forwards;
+}
+@keyframes sunsetAnimation {
+  0% {
+    box-shadow: 0 10px 30px rgba(255, 159, 42, 0.9);
+  }
+  90% {
+    height: 0px;
+    width: 0px;
+    left: 150px;
+    background: radial-gradient(circle at bottom, #ff9933 10%, transparent 70%);
+    box-shadow: 0 10px 30px rgba(255, 153, 51,0.2);
   }
 }
 .header{
@@ -63,7 +94,8 @@ color: white;
   margin-left: 20px;
   max-width: 150px;
   border-radius: 30px;
-  box-shadow: 0 10px 30px rgba(66,108,248,0.9); 
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.7); 
   text-align: center;
   border: none;
   height: 60px;
@@ -182,7 +214,7 @@ color: white;
   min-height: 190px;
   min-width: 300px;
   padding: 10px;
-  text-align: center;
+  /* text-align: center; */
 }
 .shape1{
   margin-top: 25px;
@@ -197,8 +229,13 @@ color: white;
   order: 1;
 
 }
-.sun{
+.sun span{
+  position: relative;
   cursor: pointer;
+  top: 17px;
+  right: 4px;
+  font-size: 45px;
+  
 }
 /* .sunRise{
   

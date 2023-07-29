@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Axios from 'axios'
-
+import {WiSunrise, WiSunset} from 'react-icons/wi'
 import "./WeatherComponent.css"
 import CITIES from '../../data/cities-name-list'
 
@@ -27,10 +27,6 @@ function WeatherApiComponent() {
     
   }, 1000);
   
-  const inputHandler = (event) => {
-    setSearchQuery(event.target.value); 
-  }
-
   const searchHandler = async() => {
     try{
       const response = await Axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${searchQuery}&APPID=3cba5e74adf3dff51d692eac46d71e49`)
@@ -57,8 +53,14 @@ function WeatherApiComponent() {
     
   }
   const sunSetFunction = () => {
-    setSun("moonTime");
-    setRiseSet("sunSet");
+    if(sun === "sunTime"){
+      setSun("moonTime");
+      setRiseSet("sunSet");
+    }
+    setTimeout(()=>{
+      setSun("");
+      setRiseSet("")
+    },5000)
   }
 
  
@@ -78,7 +80,8 @@ function WeatherApiComponent() {
           type='text'
           placeholder='Search'
           value={searchQuery}
-          onChange={inputHandler }
+          onChange={(e) => setSearchQuery(e.target.value)}
+          
           />
           
           <button type='submit' className='btn' onClick={searchHandler}>Search</button>
@@ -113,8 +116,8 @@ function WeatherApiComponent() {
               <p>Temperature : {main.temp}</p>
               <p>Humidity : {main.humidity}</p>
               <p>Wind Speed (kmph): {wind.speed} </p>
-              <p className='sun' onClick={sunRiseFunction}>Sunrise Time: {convertUnixTimestampToTime(dataTime.sunrise)}</p>
-              <p className='sun' onClick={sunSetFunction}>Sunset Time: {convertUnixTimestampToTime(dataTime.sunset)}</p>
+              <p className='sun' onClick={sunRiseFunction}><span ><WiSunrise/></span>Sunrise Time: {convertUnixTimestampToTime(dataTime.sunrise)}</p>
+              <p className='sun' onClick={sunSetFunction}><span ><WiSunset/></span>Sunset Time: {convertUnixTimestampToTime(dataTime.sunset)}</p>
      
             </div>
             </div>

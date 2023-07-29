@@ -5,7 +5,7 @@ import "./WeatherComponent.css"
 import CITIES from '../../data/cities-name-list'
 
 function WeatherApiComponent() {
-  const [data,setData] = useState([])
+  const [data,setData] = useState([null])
   const [dataCheck,setDataCheck] = useState(null)
   const [searchQuery,setSearchQuery] = useState("")
   const [main,setMain] = useState([])

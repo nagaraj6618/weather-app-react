@@ -40,7 +40,8 @@ color: white;
 @keyframes sunriseAnimation {
   0% {
     box-shadow: 0 10px 30px rgba(255, 153, 51,0.2);
-    
+    height: 0px;
+    width: 0px;
   }
   100% {
     top: 50px;

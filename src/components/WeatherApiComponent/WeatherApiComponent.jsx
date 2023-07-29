@@ -13,6 +13,9 @@ function WeatherApiComponent() {
   const [time,setTime] = useState("")
   const [date,setDate] = useState("")
   const [dataTime,setDataTime] = useState([])
+  const [sun,setSun] = useState("")
+  const [riseSet,setRiseSet] = useState("")
+
   setInterval(() => {
     const now = new Date()
     const currentDate = now.toDateString();
@@ -23,12 +26,11 @@ function WeatherApiComponent() {
     }
     
   }, 1000);
-  setInterval(()=> {
-    
-  })
+  
   const inputHandler = (event) => {
     setSearchQuery(event.target.value); 
   }
+
   const searchHandler = async() => {
     try{
       const response = await Axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${searchQuery}&APPID=3cba5e74adf3dff51d692eac46d71e49`)
@@ -49,10 +51,21 @@ function WeatherApiComponent() {
     return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   };
 
+  const sunRiseFunction = () =>{
+    setSun("sunTime");
+    setRiseSet("sunRise");
+    
+  }
+  const sunSetFunction = () => {
+    setSun("moonTime");
+    setRiseSet("sunSet");
+  }
+
  
 
   return (
-    <div className='head-container'>
+    <div className={sun}>
+      <div className={riseSet}></div>
       <div className='Timer-card'>
         <div className='Timer'>{time}</div>
         <div className='Date'>{date}</div>
@@ -92,7 +105,7 @@ function WeatherApiComponent() {
       
         <div className='container'>
           <div className="shape1"></div>
-          <div className="shape2"></div>
+          {/* <div className="shape2"></div> */}
           <div className='container-card'>
             <h2 className='head-text'>{data.name}</h2>
             <div className='wrapper'>
@@ -100,8 +113,8 @@ function WeatherApiComponent() {
               <p>Temperature : {main.temp}</p>
               <p>Humidity : {main.humidity}</p>
               <p>Wind Speed (kmph): {wind.speed} </p>
-              <p>Sunrise Time: {convertUnixTimestampToTime(dataTime.sunrise)}</p>
-              <p>Sunset Time: {convertUnixTimestampToTime(dataTime.sunset)}</p>
+              <p className='sun' onClick={sunRiseFunction}>Sunrise Time: {convertUnixTimestampToTime(dataTime.sunrise)}</p>
+              <p className='sun' onClick={sunSetFunction}>Sunset Time: {convertUnixTimestampToTime(dataTime.sunset)}</p>
      
             </div>
             </div>

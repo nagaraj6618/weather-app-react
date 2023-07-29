@@ -2,10 +2,53 @@
 color: white;
 
 }
-/* .head-container{
-  background-color: #426cf8;
-  height: 97vh;
-} */
+ .sunTime{
+   /* position: absolute; */
+  /* background-color: rgba(255, 182, 80, 0.7) ; */
+  height: 100vh;
+  /* background: radial-gradient(at 40% 70%, #820, #610, #400, #100); */
+ /* width: 100%;
+ 
+  background: radial-gradient(circle at bottom, #ff9933 10%, transparent 80%);
+
+*/
+  animation: sunrise 10s  linear forwards; 
+  
+
+  
+ }
+ 
+ @keyframes sunrise{
+  0%{
+    background-color: #11131e;
+  }
+  100%{
+    background:  #ffc183 ;
+  }
+ }
+
+.sunRise{
+  position: sticky;
+  top: 56%;
+  left: 47%;
+  width: 100px;
+  height: 100px;
+  background-color:#ff9933;
+  border-radius: 50%;
+  animation: sunriseAnimation 10s linear forwards;
+}
+@keyframes sunriseAnimation {
+  0% {
+    box-shadow: 0 10px 30px rgba(255, 153, 51,0.2);
+    
+  }
+  100% {
+    top: 50px;
+    left: 210px;
+    background:  rgb(255, 153, 51) ;
+    box-shadow: 0 10px 30px rgba(255, 159, 42, 0.9); 
+  }
+}
 .header{
   margin-top: 30px;
   display: flex;
@@ -153,3 +196,11 @@ color: white;
   order: 1;
 
 }
+.sun{
+  cursor: pointer;
+}
+/* .sunRise{
+  
+  background-color: red;
+  height: 100vh;
+} */

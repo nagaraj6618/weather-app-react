@@ -15,7 +15,8 @@ function WeatherApiComponent() {
   const [dataTime,setDataTime] = useState([])
   const [sun,setSun] = useState("")
   const [riseSet,setRiseSet] = useState("")
-
+  const [weatherArray,setWeatherArray] = useState([])
+ 
   setInterval(() => {
     const now = new Date()
     const currentDate = now.toDateString();
@@ -33,9 +34,9 @@ function WeatherApiComponent() {
       setData(response.data);
       setMain(response.data.main);
       setWind(response.data.wind);
-      setDataTime(response.data.sys)
+      setWeatherArray(response.data.weather);
+      setDataTime(response.data.sys); 
       setDataCheck(true)
-      
     }
     catch(err){
       alert('Please Enter valid City Name')
@@ -60,14 +61,23 @@ function WeatherApiComponent() {
     setTimeout(()=>{
       setSun("");
       setRiseSet("")
-    },4500)
+    },5000)
+  }
+  const climateHandler = () => {
+    weatherArray.map((item) => setSun(item.main));
+    setRiseSet('');
+  
+    console.log(sun);
   }
 
  
 
   return (
-    <div className={sun}>
-      <div className={riseSet}></div>
+    <div className={sun} >
+      <div className={riseSet} id='weather-type'>
+       
+      </div>
+    
       <div className='Timer-card'>
         <div className='Timer'>{time}</div>
         <div className='Date'>{date}</div>
@@ -81,10 +91,9 @@ function WeatherApiComponent() {
           placeholder='Search'
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
-          
           />
-          
           <button type='submit' className='btn' onClick={searchHandler}>Search</button>
+          
           <div className='search-container'>
         
           {CITIES.filter(item => {
@@ -100,7 +109,7 @@ function WeatherApiComponent() {
           
         </div>
         </div>
-
+        
         </div>
       
       <div className='card-head'>
@@ -118,7 +127,8 @@ function WeatherApiComponent() {
               <p>Wind Speed (kmph): {wind.speed} </p>
               <p className='sun' onClick={sunRiseFunction}><span ><WiSunrise/></span>Sunrise Time: {convertUnixTimestampToTime(dataTime.sunrise)}</p>
               <p className='sun' onClick={sunSetFunction}><span ><WiSunset/></span>Sunset Time: {convertUnixTimestampToTime(dataTime.sunset)}</p>
-     
+              <p className='climate' onClick={climateHandler}>Climate</p>
+             
             </div>
             </div>
           </div>
@@ -126,7 +136,7 @@ function WeatherApiComponent() {
       
       )}
       </div>
-   
+     
     </div>
   )
 }

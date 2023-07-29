@@ -2,9 +2,9 @@
 color: white;
 
 }
+
  .sunTime{
-   /* position: absolute; */
-  /* background-color: rgba(255, 182, 80, 0.7) ; */
+  
   height: 100vh;
 
   animation: sunrise 5s  linear forwards; 
@@ -12,7 +12,6 @@ color: white;
 
   
  }
- 
  @keyframes sunrise{
   0%{
     background-color: #11131e;
@@ -21,34 +20,42 @@ color: white;
     background:  #ffc183 ;
   }
  }
+ 
 
 .sunRise{
   position: sticky;
  
   top: 30px;
   left: 150px;
-  width: 90px;
-  height: 90px;
+  width: 70px;
+  height: 70px;
   background-color:#ff9933;
   border-radius: 50%;
   animation: sunriseAnimation 5s linear forwards;
+
 }
 @keyframes sunriseAnimation {
   0% {
-    box-shadow: 0 10px 30px rgba(255, 153, 51,0.2);
+    
     height: 0px;
     width: 0px;
+  
+    background:  rgba(255, 153, 51,0.7) ;
+    box-shadow: 0 10px 30px rgba(255, 159, 42, 0.1);
   }
   100% {
-    
+    top:10px;
     left: 70%;
-    background:  rgb(255, 153, 51) ;
-    box-shadow: 0 10px 30px rgba(255, 159, 42, 0.9); 
+    background:  rgba(255, 153, 51,0.9) ;
+    box-shadow: 0 10px 30px rgba(255, 159, 42, 1); 
+    
   }
 }
 .moonTime{
+  
   height: 100vh;
   animation: sunset 5s  linear forwards;
+  
 }
 @keyframes sunset{
   0%{
@@ -61,10 +68,10 @@ color: white;
  }
  .sunSet{
   position: sticky;
-  top: 30px;
+  top:10px;
   left: 70%;
-  width: 90px;
-  height: 90px;
+  width: 70px;
+  height: 70px;
   background-color:#ff9933;
   border-radius: 50%;
   animation: sunsetAnimation 5s linear forwards;
@@ -73,14 +80,73 @@ color: white;
   0% {
     box-shadow: 0 10px 30px rgba(255, 159, 42, 0.9);
   }
-  90% {
+  100% {
     height: 0px;
     width: 0px;
+    top: 30px;
     left: 150px;
     background:  rgba(255, 153, 51,0.1) ;
     box-shadow: 0 10px 30px rgba(255, 153, 51,0.2);
   }
 }
+
+.Clouds{
+  position: relative;
+  top: -10px; 
+  min-height: 100vh;
+  
+  background: url(rain-3.png);
+  animation: rain 0.3s linear infinite;  
+}
+@keyframes rain{
+  0%{
+    background-position: 0% 0%;
+  }
+  100%{
+    background-position: 20% 100%;
+  }
+}
+.Clouds::before{
+  content: "";
+  position: absolute;
+  top:20px;
+  width: 100%;
+  height: 100%;
+  background: url(lightining.png);
+  background-size: cover;
+  mix-blend-mode:lighten;
+  transform: rotate(180deg);
+  animation: lighting 4s linear infinite;
+  opacity: 1;
+}
+@keyframes lighting{
+  0%{
+    opacity: 0;
+  }
+  20%{
+    opacity: 0;
+  }
+  21%{
+    opacity: 1;
+  }
+  25%{
+    opacity: 0;
+  }
+  30%{
+    opacity: 0;
+  }
+  31%{
+    opacity: 1;
+  }
+  35%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+
+
 .header{
   margin-top: 30px;
   display: flex;
@@ -89,13 +155,14 @@ color: white;
   flex-direction: column; 
 }
 .Timer-card{
+  position: relative;
   font-size: medium;
   margin-top: 20px;
   margin-left: 20px;
   max-width: 150px;
   border-radius: 30px;
-
-  box-shadow: 0 10px 30px rgba(0,0,0,0.7); 
+  background-color: rgb(66, 108, 248);
+  box-shadow: 1px 10px 40px rgba(66, 108, 248,0.7); 
   text-align: center;
   border: none;
   height: 60px;
@@ -123,6 +190,8 @@ color: white;
   margin-top: 10px;
 }
 .search-bar{
+  
+
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
@@ -188,11 +257,11 @@ color: white;
   opacity: 1;
 }
 .card-head{
-    margin-top: 100px;
+    margin-top: 10px;
 }
 
 .container{ 
-  margin-top: 30px;
+  /* margin-top: 30px; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -211,7 +280,7 @@ color: white;
   backdrop-filter: blur(12px);
   border-radius: 10px;
   order: 2;
-  min-height: 190px;
+  max-height: 300px;
   min-width: 300px;
   padding: 10px;
   /* text-align: center; */
@@ -237,8 +306,20 @@ color: white;
   font-size: 45px;
   
 }
-/* .sunRise{
-  
-  background-color: red;
-  height: 100vh;
-} */
+.climate{
+  position: relative;
+  top:-285px;
+  left: 200px;
+  background-color: #426cf8;
+  width: fit-content;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.climate:hover{
+  background-color: #eb3461;
+}
+#weather-type{
+  position: sticky;
+}

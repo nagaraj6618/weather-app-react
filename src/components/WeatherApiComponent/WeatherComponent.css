@@ -90,13 +90,15 @@ color: white;
   }
 }
 
-.Clouds{
-  position: relative;
-  top: -10px; 
-  min-height: 100vh;
+.rainy{
+  position: absolute;
+  width: 100%;
+  top: -5px; 
+  height: 98vh;
   z-index: 1;
   background: url(rain-3.png);
-  animation: rain 0.3s linear infinite;  
+  
+  animation: rain 0.4s linear infinite;  
 }
 @keyframes rain{
   0%{
@@ -106,7 +108,7 @@ color: white;
     background-position: 20% 100%;
   }
 }
-.Clouds::before{
+.rainy::before{
   content: "";
   position: absolute;
   top:20px;
@@ -298,19 +300,26 @@ color: white;
   order: 1;
 
 }
+.sun{
+  text-align: center;
+  position: relative;
+}
 .sun span{
   position: relative;
   cursor: pointer;
   top: 17px;
   right: 4px;
   font-size: 45px;
-  
+  transition: 0.4s;
+}
+.sun span:hover{
+  font-size: 50px;
 }
 .climate{
-  position: relative;
-  top:-285px;
-  left: 200px;
-  background-color: #426cf8;
+  position: absolute;
+  top:7px;
+  left: 220px;
+  font-size: 40px;
   width: fit-content;
   padding: 10px;
   border-radius: 5px;
@@ -318,8 +327,49 @@ color: white;
   transition: 0.5s;
 }
 .climate:hover{
-  background-color: #eb3461;
+  font-size: 50px;
 }
-#weather-type{
+/* #weather-type{
   position: sticky;
+} */
+.Clouds{
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  animation: sunrise 3s  linear forwards;
+}
+.Cloud-sun{
+  /* position: absolute; */
+  position: absolute;
+  top: 30px;
+  left: 85%;
+  transform: translateX(-50%);
+  background-color: #FFFFFF; /* White color for cloud */
+  width: 120px;
+  height: 50px;
+  border-radius: 50px; /* Adjust the value to get the desired cloud shape */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  opacity: 0.7;
+  transition: 0.5s;
+}
+.Cloud-sun:hover{
+  top:38px;
+  left: 80%;
+  height:70px;
+  width: 165px;
+  opacity: 1;
+}
+.Cloud-sun-1{
+  position: absolute;
+  content: 'hii';
+  font-size: 1000px;
+  top: 8px;
+  left: 87%;
+  transform: translateX(-50%);
+  background-color: #FFD700; /* Yellow color for sun */
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.87);
 }

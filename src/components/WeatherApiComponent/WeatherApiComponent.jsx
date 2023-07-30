@@ -4,6 +4,7 @@ import {WiSunrise, WiSunset} from 'react-icons/wi'
 import "./WeatherComponent.css"
 import CITIES from '../../data/cities-name-list'
 
+
 function WeatherApiComponent() {
   const [data,setData] = useState([null])
   const [dataCheck,setDataCheck] = useState(null)
@@ -16,7 +17,7 @@ function WeatherApiComponent() {
   const [sun,setSun] = useState("")
   const [riseSet,setRiseSet] = useState("")
   const [weatherArray,setWeatherArray] = useState([])
- 
+  // const [cloud,setCloud] = useState('')
   setInterval(() => {
     const now = new Date()
     const currentDate = now.toDateString();
@@ -65,21 +66,33 @@ function WeatherApiComponent() {
   }
   const climateHandler = () => {
     weatherArray.map((item) => setSun(item.main));
-    setRiseSet('');
+   
+    if(sun === "rainy" || sun === "rains"  || sun === "rain"|| sun ==='Rainy' || sun === 'Rains' ||  sun === "Rain"){
+      setSun('rainy')
+      setRiseSet('');
+    }
+    if(sun === "Clouds"){
+      setSun('Clouds')
+      setRiseSet('Cloud-sun');
+    }
+    
   }
 
  
 
   return (
     <div className={sun} >
-      <div className={riseSet} id='weather-type'>
-       
+      <div className={riseSet+"-1"}></div>
+      <div className={riseSet} >
+      
       </div>
-    
+      
+    {time && 
       <div className='Timer-card'>
         <div className='Timer'>{time}</div>
         <div className='Date'>{date}</div>
       </div>
+    }
       <div className='header'>
       
         <div className='search-bar'>
@@ -125,8 +138,8 @@ function WeatherApiComponent() {
               <p>Wind Speed (kmph): {wind.speed} </p>
               <p className='sun' onClick={sunRiseFunction}><span ><WiSunrise/></span>Sunrise Time: {convertUnixTimestampToTime(dataTime.sunrise)}</p>
               <p className='sun' onClick={sunSetFunction}><span ><WiSunset/></span>Sunset Time: {convertUnixTimestampToTime(dataTime.sunset)}</p>
-              <p className='climate' onClick={climateHandler}>Climate</p>
-             
+              <div className='climate' onClick={climateHandler} >🌥️</div>
+            
             </div>
             </div>
           </div>

@@ -72,8 +72,8 @@ function WeatherApiComponent() {
       setRiseSet('');
     }
     if(sun === "Clouds"){
-      setSun('Clouds')
-      setRiseSet('Cloud-sun');
+      setSun('sunTime')
+      setRiseSet('sunRise');
     }
     
   }
@@ -109,12 +109,13 @@ function WeatherApiComponent() {
         
           {CITIES.filter(item => {
             const searchItem = searchQuery.toLowerCase()
-            const fullName = item.toLowerCase()
+            const Name = item.name
+            const fullName = Name.toLowerCase()
             return searchItem && fullName.startsWith(searchItem) && fullName !== searchItem
           })
           
           .map((data) => (
-            <div onClick={()=>setSearchQuery(data)} >{data}</div>
+            <div key = {data.id}onClick={()=>setSearchQuery(data.name)} >{data.name}</div>
           
           ))}
           

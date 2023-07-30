@@ -1,4 +1,4 @@
-const CITIES=[
+const CITIES_NAME=[
 	"Achalpur",
   "Achhnera",
   "Adalaj",
@@ -1217,4 +1217,14 @@ const CITIES=[
   "Zirakpur",
   "Zunheboto",
 ]
+function addUniqueIds(arr) {
+  
+  return arr.map((city, index) => ({
+    name: city,
+    id:index + 1,
+  }));
+
+}
+const CITIES = addUniqueIds(CITIES_NAME)
+
 export default CITIES;

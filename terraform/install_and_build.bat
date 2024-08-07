@@ -1,9 +1,9 @@
 @echo off
 REM Navigate to the React project directory
-cd /d %~dp0\\..\\your-react-project
+cd D:\Devops\weather-app\weather-app-react
 
 REM Install npm dependencies
-npm install
+npm install && npm run build
 
 REM Build the React project
 npm run build

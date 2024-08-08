@@ -14,7 +14,7 @@ resource "local_file" "npm_install_script" {
     cd D:\Devops\weather-app\weather-app-react
 
     REM Install npm dependencies
-    npm install && npm install -g serve && npm run build && serve -s build
+    npm install && npm install -g serve && npm run build 
   EOT
   filename = "${path.module}/install_and_build.bat"
   file_permission = "0755"

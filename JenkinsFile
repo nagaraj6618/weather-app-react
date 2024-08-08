@@ -1,0 +1,43 @@
+pipeline {
+    agent any
+
+    environment {
+        TF_VAR_project_name = 'weather-app'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'master', url: 'https://github.com/nagaraj6618/weather-app-react'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                script {
+                    // Ensure Node.js and npm are installed on your Jenkins agent
+                    sh 'npm install'
+                    sh 'npm run build'
+                }
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                script {
+                    // Configure Terraform to apply changes
+                    dir('terraform') {
+                        sh 'terraform init'
+                        sh 'terraform apply -auto-approve'
+                    }
+                }
+            }
+        }
+    }
+    
+    post {
+        always {
+            cleanWs()
+        }
+    }
+}
